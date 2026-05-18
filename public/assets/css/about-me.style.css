@@ -1,8 +1,10 @@
 /* Clean & Simple About me section styling */
 .about-clean-container {
   width: 100%;
-  padding: 3rem 2rem; /* Reduced padding height as requested */
-  background-color: var(--body-color, #000000); /* Uses --body-color to perfectly match current theme bg */
+  padding: 3rem 2rem;
+  /* Reduced padding height as requested */
+  background-color: var(--body-color, #000000);
+  /* Uses --body-color to perfectly match current theme bg */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,20 +14,26 @@
 .about-clean-wrapper {
   max-width: 1200px;
   width: 100%;
-  background-color: #000000; /* Solid black background in Moon theme as requested */
+  background-color: #000000;
+  /* Solid black background in Moon theme as requested */
   border-radius: 2rem;
-  padding: 2.5rem 4rem; /* Reduced vertical padding height as requested */
+  padding: 2.5rem 4rem;
+  /* Reduced vertical padding height as requested */
   display: flex;
-  flex-direction: column; /* Fixed top heading */
+  flex-direction: column;
+  /* Fixed top heading */
   align-items: flex-start;
-  gap: 2rem; /* Reduced gap */
-  border: 1.5px solid #ffffff; /* Solid White borders in Moon theme as requested */
+  gap: 2rem;
+  /* Reduced gap */
+  border: 1.5px solid #ffffff;
+  /* Solid White borders in Moon theme as requested */
   box-shadow: none !important;
 }
 
 /* Light Theme (Sun Theme) Override */
 :root.light-theme .about-clean-wrapper {
-  background-color: #ffffff; /* White background for Sun theme */
+  background-color: #ffffff;
+  /* White background for Sun theme */
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: none !important;
 }
@@ -36,7 +44,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 3.5rem; /* Reduced gap */
+  gap: 3.5rem;
+  /* Reduced gap */
   position: relative;
 }
 
@@ -55,11 +64,13 @@
 .about-clean-content-box * {
   flex: 1.2;
   position: relative;
-  cursor: none !important; /* Hide OS arrow mouse cursor completely on hover! */
+  cursor: none !important;
+  /* Hide OS arrow mouse cursor completely on hover! */
 }
 
 .about-clean-heading {
-  font-family: "Delius", serif; /* Normal font matching other sections */
+  font-family: "Delius", serif;
+  /* Normal font matching other sections */
   font-size: 2.5rem;
   color: var(--body-text-color, snow);
   margin: 0;
@@ -68,7 +79,8 @@
 }
 
 .about-clean-text {
-  font-family: "Delius", serif; /* Normal font matching other sections */
+  font-family: "Delius", serif;
+  /* Normal font matching other sections */
   font-size: 1.25rem;
   line-height: 1.95;
   color: var(--body-text-color, snow);
@@ -79,6 +91,7 @@
 :root.light-theme .about-clean-heading {
   color: #132B3D;
 }
+
 :root.light-theme .about-clean-text {
   color: #132B3D;
   opacity: 0.85;
@@ -93,24 +106,25 @@
   height: 160px;
   border-radius: 50%;
   overflow: hidden;
-  pointer-events: none; /* Lets mouse events pass through to standard text box */
+  pointer-events: none;
+  /* Lets mouse events pass through to standard text box */
   opacity: 0;
   transform: scale(0.8);
   transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   z-index: 50;
-  
+
   /* Fluid Glass visuals */
   border: 3px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 
-              inset 0 0 25px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 25px rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(2px) saturate(1.4) contrast(1.1);
   -webkit-backdrop-filter: blur(2px) saturate(1.4) contrast(1.1);
 }
 
 :root.light-theme .fluid-glass-lens {
   border: 3px solid rgba(19, 43, 61, 0.8);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), 
-              inset 0 0 25px rgba(19, 43, 61, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2),
+    inset 0 0 25px rgba(19, 43, 61, 0.2);
 }
 
 .magnified-text-container {
@@ -123,7 +137,8 @@
 
 .magnified-text {
   position: absolute;
-  transform: scale(1.35); /* 1.35x zoom ratio */
+  transform: scale(1.35);
+  /* 1.35x zoom ratio */
   transform-origin: 0 0;
   color: var(--body-text-color, snow);
   opacity: 1 !important;
@@ -144,7 +159,8 @@
 
 .about-profile-image-frame {
   width: 360px;
-  height: 400px; /* Reduced portrait height as requested for shorter section */
+  height: 400px;
+  /* Reduced portrait height as requested for shorter section */
   border-radius: 1.5rem;
   overflow: hidden;
   background: #f3f4f6;
@@ -173,29 +189,37 @@
     flex-direction: column;
     gap: 3rem;
   }
+
   .about-clean-wrapper {
     padding: 2.5rem 2rem;
     align-items: center;
   }
+
   .about-clean-content-box {
     width: 100%;
   }
+
   .about-clean-image-box {
     width: 100%;
-    order: -1; /* Image on top in mobile */
+    order: -1;
+    /* Image on top in mobile */
   }
+
   .about-profile-image-frame {
     width: 300px;
     height: 350px;
     transform: none !important;
     margin-bottom: 0;
   }
+
   .about-clean-heading {
     text-align: center;
   }
+
   .about-clean-text {
     text-align: center;
   }
+
   /* Disable fluid glass magnifier on mobile/touch interfaces to ensure seamless native scroll */
   .fluid-glass-lens {
     display: none !important;

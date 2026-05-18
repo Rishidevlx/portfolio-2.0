@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* CSS Stylesheets */}
-        <link rel="stylesheet" href="/assets/css/cursor.style.css" />
+        {/* <link rel="stylesheet" href="/assets/css/cursor.style.css" /> */}
         <link rel="stylesheet" href="/assets/css/root.style.css" />
         <link rel="stylesheet" href="/assets/css/reuseable.style.css" />
         <link rel="stylesheet" href="/assets/css/cloud.style.css" />
@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         <Script src="/scripts/fonts.script.js" strategy="afterInteractive" />
 
         {/* Module scripts - all use import/export so need type=module */}
-        <Script src="/scripts/cursor.script.js" strategy="afterInteractive" type="module" />
+        {/* <Script src="/scripts/cursor.script.js" strategy="afterInteractive" type="module" /> */}
         <Script src="/scripts/cloud.script.js" strategy="afterInteractive" type="module" />
         <Script src="/scripts/star.script.js" strategy="afterInteractive" type="module" />
         <Script src="/scripts/home-and-ground.script.js" strategy="afterInteractive" type="module" />
