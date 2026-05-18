@@ -1,3 +1,6 @@
+'use client';
+import dynamic from 'next/dynamic';
+const Lanyard = dynamic(() => import('./components/Lanyard'), { ssr: false });
 
 export default function Home() {
   return (
@@ -83,7 +86,7 @@ export default function Home() {
               <div className="img-box">
                 <img src="./assets/images/pritam-6.png" title="Pritam Debnath - Software Developer"
                   alt="Pritam Debnath, Software Developer specializing in frontend and backend development, based in Kolkata, India"
-                  fetchpriority="high" decoding="async" />
+                  fetchPriority="high" decoding="async" />
               </div>
             </div>
 
@@ -146,7 +149,6 @@ export default function Home() {
                   <div className="company-role">
                     <div className="svg-container">
                       <span className="span-svg-circle"></span>
-                      </span>
                     </div>
                     <div className="role-box">
                       <h4 className="role-name">Full-Stack Developer</h4>
@@ -586,7 +588,10 @@ export default function Home() {
   {/*  Skills section starts  */}
   <div className="join-ex-and-skill z-index-2"></div>
 
-
+  {/* Lanyard 3D component */}
+  <div style={{ width: '100%', height: '500px', position: 'relative' }}>
+    <Lanyard position={[0, 0, 30]} gravity={[0, -40, 0]} fov={20} transparent={true} />
+  </div>
 
   <div className="bg-black-blur" style={{padding: '1rem 1rem'}}>
 
@@ -1158,8 +1163,8 @@ I’m Pritam Debnath, I build frontend systems that are designed to feel simple,
         {/*  <a href="https://in.pinterest.com/PriDebnath/" className="social-icon-box animate-svg" target="_blank"
           title="youtube" aria-label="Visit Pritam's youtube profile">
           <span className="span-svg-youtube flex"></span>
-          <span>Youtube</span>  */}
-        </a>
+          <span>Youtube</span>
+        </a>  */}
 
         <a href="https://gumroad.com/PriDebnath/" className="social-icon-box animate-svg" target="_blank" title="gumroad"
           aria-label="Visit Pritam's Gumroad profile">
@@ -1232,68 +1237,37 @@ I’m Pritam Debnath, I build frontend systems that are designed to feel simple,
   {/*  Modals section ends  */}
 
   {/*  Service worker registration starts  */}
+  {/*
   <script>
     if ('serviceWorker' in navigator) {
       const swVersion = new Date().getTime();
       navigator.serviceWorker.register('./service-worker.script.js?v=' + swVersion)
-        .then(() => {
-          // console.log('Service Worker registered with timestamp', swVersion)
-        }
-        )
-        .catch(err => {
-          // console.log('Service Worker registration failed', err)
-        }
-        )
+        .then(() => {})
+        .catch(err => {})
     }
   </script>
+  */}
   {/*  Service worker registration ends  */}
 
   {/*  JavaScript scripts start  */}
-  <script src="./scripts/reuseable.script.js"></script>
-
-  <script src="./scripts/home-and-ground.script.js" type="module"></script>
-
-  <script src="./scripts/fonts.script.js"></script>
-
-
-  <script src="./scripts/cursor.script.js" type="module"></script>
-
-  <script src="./scripts/my.script.js" type="module"></script>
-
-  <script src="./scripts/cloud.script.js" type="module"></script>
-
-  {/* 
-<script  src="./scripts/cloud-type-2.script.js" type="module"></script>
- */}
-
-  <script src="./scripts/star.script.js" type="module"></script>
-
-  <script src="./scripts/tree.script.js" type="module"></script>
-
-  <script src="./scripts/skill.script.js" type="module"></script>
-
-  <script src="./scripts/ex.script.js" type="module"></script>
-
-  <script src="./scripts/projects.script.js" type="module"></script>
-
-  <script src="./scripts/footer.script.js" type="module"></script>
-
-
-
-  <script src="./scripts/about-me.script.js" type="module"></script>
-
-  <script src="./scripts/your.script.js" type="module"></script>
-
-  <script src="./scripts/recent-activity.script.js" type="module"></script>
-
-
-  <script src="./scripts/cute-avatar.script.js" type="module"></script>
-  <script src="./scripts/moveable-box.script.js" type="module"></script>
-
-  {/*  <script src="./scripts/social-icons.script.js"
-        type="module"></script>  */}
-
-  <script src="./scripts/svg.script.js" type="module"></script>
+  {/* <script src="./scripts/reuseable.script.js"></script> */}
+  {/* <script src="./scripts/home-and-ground.script.js" type="module"></script> */}
+  {/* <script src="./scripts/fonts.script.js"></script> */}
+  {/* <script src="./scripts/cursor.script.js" type="module"></script> */}
+  {/* <script src="./scripts/my.script.js" type="module"></script> */}
+  {/* <script src="./scripts/cloud.script.js" type="module"></script> */}
+  {/* <script src="./scripts/star.script.js" type="module"></script> */}
+  {/* <script src="./scripts/tree.script.js" type="module"></script> */}
+  {/* <script src="./scripts/skill.script.js" type="module"></script> */}
+  {/* <script src="./scripts/ex.script.js" type="module"></script> */}
+  {/* <script src="./scripts/projects.script.js" type="module"></script> */}
+  {/* <script src="./scripts/footer.script.js" type="module"></script> */}
+  {/* <script src="./scripts/about-me.script.js" type="module"></script> */}
+  {/* <script src="./scripts/your.script.js" type="module"></script> */}
+  {/* <script src="./scripts/recent-activity.script.js" type="module"></script> */}
+  {/* <script src="./scripts/cute-avatar.script.js" type="module"></script> */}
+  {/* <script src="./scripts/moveable-box.script.js" type="module"></script> */}
+  {/* <script src="./scripts/svg.script.js" type="module"></script> */}
   {/*  JavaScript scripts end  */}
 
 

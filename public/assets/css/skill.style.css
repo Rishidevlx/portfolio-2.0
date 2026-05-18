@@ -11,7 +11,12 @@
 :root.light-theme {
     --skill-border-color: #dcdcdc;
     --skill-text-color: #171719;
-    --skill-bg-color: #f5f5f5;
+    --skill-bg-color: white;
+}
+
+:root.light-theme .skill,
+:root.light-theme .certification-link {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 #skill-section {
@@ -22,7 +27,7 @@
 /* .skill-container {}
 
 #skill-section h2 {} */
- 
+
 
 .skills {
     display: flex;
@@ -38,7 +43,8 @@
     align-items: center;
     width: 0px;
     text-decoration: none;
-    padding: var(--skill-padding-y) var(--skill-padding-x);
+    padding: 0.5rem 1rem; /* Slightly larger padding to match the elegant font size! */
+    font-size: 1.05rem; /* Elegant slightly larger font size for premium readability! */
     width: fit-content;
     /* transform: scaleX(0.5); */
     transform: scaleX(0);
@@ -118,4 +124,54 @@
 .certification-link:hover {
     border: 1px solid var(--body-text-color);
 
+}
+
+/* ========================================================
+   SKILLS SPLIT 2-COLUMN LAYOUT WITH INTERACTIVE 3D LANYARD
+   ======================================================== */
+.skills-split-layout {
+  display: flex;
+  gap: 2.5rem;
+  width: 100%;
+  align-items: stretch;
+  margin-top: 1rem;
+}
+
+.skills-left-column {
+  flex: 1;
+  min-width: 0;
+}
+
+.skills-right-column {
+  flex: 1;
+  min-width: 480px; /* Expansive horizontal width to completely prevent clipping on left/right! */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+  margin-right: 2rem; /* Clean balanced margin */
+  margin-left: 1rem;
+}
+
+#lanyard-3d-root {
+  width: 100%;
+  z-index: 1;
+  position: relative;
+}
+
+/* Responsive view: stack columns vertically on mobile screens */
+@media (max-width: 900px) {
+  .skills-split-layout {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .skills-right-column {
+    width: 100%;
+    min-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
 }

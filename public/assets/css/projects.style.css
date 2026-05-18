@@ -11,7 +11,12 @@
 :root.light-theme {
     --project-border-color: #dcdcdc;
     --project-text-color: #171719;
-    --project-bg-color: #f5f5f5;
+    --project-bg-color: white;
+}
+
+:root.light-theme .project-card,
+:root.light-theme #about-me-section {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -189,4 +194,91 @@
     display: flex;
     align-items: center;
     aspect-ratio: 1;
+}
+
+/* ========================================================
+   PREMIUM PAGINATION CONTROLS (PROJECTS, EXPERIENCE & TESTIMONIALS)
+   ======================================================== */
+.project-pagination-controls,
+.ex-pagination-controls,
+.testimonials-pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.project-pagination-btn,
+.ex-pagination-btn,
+.testimonials-pagination-btn {
+  background: var(--project-bg-color, #171719);
+  border: 1.5px solid var(--project-border-color, #252527);
+  width: 48px;
+  height: 48px;
+  border-radius: 0.5rem; /* Elegant premium square layout with slightly rounded corners! */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  outline: none;
+}
+
+.project-pagination-btn:hover:not(:disabled),
+.ex-pagination-btn:hover:not(:disabled),
+.testimonials-pagination-btn:hover:not(:disabled) {
+  transform: scale(1.08);
+  background: var(--body-text-color, snow);
+  border-color: var(--body-text-color, snow);
+}
+
+.project-pagination-btn:hover:not(:disabled) .pagination-arrow-icon,
+.ex-pagination-btn:hover:not(:disabled) .ex-pagination-arrow-icon,
+.testimonials-pagination-btn:hover:not(:disabled) .testimonials-pagination-arrow-icon {
+  color: var(--body-color, black) !important;
+  stroke: var(--body-color, black) !important;
+}
+
+.project-pagination-btn:disabled,
+.ex-pagination-btn:disabled,
+.testimonials-pagination-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.project-pagination-info,
+.ex-pagination-info,
+.testimonials-pagination-info {
+  font-family: "Delius", serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--body-text-color, snow);
+  min-width: 130px;
+  text-align: center;
+}
+
+/* Arrow rotation styles using existing span-svg-direct-top-right key layout */
+.pagination-arrow-icon,
+.ex-pagination-arrow-icon,
+.testimonials-pagination-arrow-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  transition: all 0.3s ease;
+  aspect-ratio: 1;
+}
+
+.prev-btn .pagination-arrow-icon,
+.prev-btn .ex-pagination-arrow-icon,
+.prev-btn .testimonials-pagination-arrow-icon {
+  transform: rotate(-135deg); /* Point left */
+}
+
+.next-btn .pagination-arrow-icon,
+.next-btn .ex-pagination-arrow-icon,
+.next-btn .testimonials-pagination-arrow-icon {
+  transform: rotate(45deg); /* Point right */
 }

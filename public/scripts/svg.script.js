@@ -1202,103 +1202,110 @@ export const upworkSvg = `
 `;
 
 
-const renderSvg = (spanTags, svg) => {
+const renderSvg = (selector, svg) => {
+  const spanTags = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;
+  if (!spanTags) return;
   spanTags.forEach((span) => {
     span.innerHTML = svg
   })
 }
 
 
-let spanSvgCircles = document.querySelectorAll('.span-svg-circle')
-let spanSvgAngular = document.querySelectorAll('.span-svg-angular')
-let spanSvgBootstrap = document.querySelectorAll('.span-svg-bootstrap')
-let spanSvgJasmine = document.querySelectorAll('.span-svg-jasmine')
-let spanSvgCypress = document.querySelectorAll('.span-svg-cypress')
-let spanSvgKarma = document.querySelectorAll('.span-svg-karma')
-let spanSvgDjango = document.querySelectorAll('.span-svg-django')
-let spanSvgReact = document.querySelectorAll('.span-svg-react')
-let spanSvgRxjs = document.querySelectorAll('.span-svg-rxjs')
-let spanSvgJs = document.querySelectorAll('.span-svg-js')
-let spanSvgTs = document.querySelectorAll('.span-svg-ts')
-let spanSvgRedux = document.querySelectorAll('.span-svg-redux')
-let spanSvgTailwind = document.querySelectorAll('.span-svg-tailwind')
-let spanSvgAntDesign = document.querySelectorAll('.span-svg-ant-design')
-let spanSvgNetlify = document.querySelectorAll('.span-svg-netlify')
-let spanSvgDirectTopRight = document.querySelectorAll('.span-svg-direct-top-right')
-let spanSvgCode = document.querySelectorAll('.span-svg-code')
-let spanSvgInstagram = document.querySelectorAll('.span-svg-instagram')
-let spanSvgLeetcode = document.querySelectorAll('.span-svg-leetcode')
-let spanSvgMail = document.querySelectorAll('.span-svg-mail')
-let spanSvgMedium = document.querySelectorAll('.span-svg-medium')
-let spanSvgLinkedin = document.querySelectorAll('.span-svg-linkedin')
-let spanSvgGithub = document.querySelectorAll('.span-svg-github')
-let spanSvgpainterest = document.querySelectorAll('.span-svg-painterest')
-let spanSvgyoutube = document.querySelectorAll('.span-svg-youtube')
-let spanSvggumroad = document.querySelectorAll('.span-svg-gumroad')
-let spanSvgBadge = document.querySelectorAll('.span-svg-badge')
-let spanSvgFiverr = document.querySelectorAll('.span-svg-fiverr')
-let spanSvgUpwork = document.querySelectorAll('.span-svg-upwork')
-let spanSvgFiverrClient = document.querySelectorAll('.span-svg-fiverr-client')
-let spanSvgUpworkClient = document.querySelectorAll('.span-svg-upwork-client')
-let spanSvgVerifiedClient = document.querySelectorAll('.span-svg-verified-client')
-let spanSvgNext = document.querySelectorAll('.span-svg-next')
-let spanSvgHtml = document.querySelectorAll('.span-svg-html')
-let spanSvgCss = document.querySelectorAll('.span-svg-css')
-let spanSvgNode = document.querySelectorAll('.span-svg-node')
-let spanSvgZustand = document.querySelectorAll('.span-svg-zustand')
-let spanSvgTanstack = document.querySelectorAll('.span-svg-tanstack')
-let spanSvgShadcn = document.querySelectorAll('.span-svg-shadcn')
-let spanSvgFramer = document.querySelectorAll('.span-svg-framer')
-let spanSvgBun = document.querySelectorAll('.span-svg-bun')
-let spanSvgElysia = document.querySelectorAll('.span-svg-elysia')
-let spanSvgPlaywright = document.querySelectorAll('.span-svg-playwright')
+let spanSvgCircles = '.span-svg-circle'
+let spanSvgAngular = '.span-svg-angular'
+let spanSvgBootstrap = '.span-svg-bootstrap'
+let spanSvgJasmine = '.span-svg-jasmine'
+let spanSvgCypress = '.span-svg-cypress'
+let spanSvgKarma = '.span-svg-karma'
+let spanSvgDjango = '.span-svg-django'
+let spanSvgReact = '.span-svg-react'
+let spanSvgRxjs = '.span-svg-rxjs'
+let spanSvgJs = '.span-svg-js'
+let spanSvgTs = '.span-svg-ts'
+let spanSvgRedux = '.span-svg-redux'
+let spanSvgTailwind = '.span-svg-tailwind'
+let spanSvgAntDesign = '.span-svg-ant-design'
+let spanSvgNetlify = '.span-svg-netlify'
+let spanSvgDirectTopRight = '.span-svg-direct-top-right'
+let spanSvgCode = '.span-svg-code'
+let spanSvgInstagram = '.span-svg-instagram'
+let spanSvgLeetcode = '.span-svg-leetcode'
+let spanSvgMail = '.span-svg-mail'
+let spanSvgMedium = '.span-svg-medium'
+let spanSvgLinkedin = '.span-svg-linkedin'
+let spanSvgGithub = '.span-svg-github'
+let spanSvgpainterest = '.span-svg-painterest'
+let spanSvgyoutube = '.span-svg-youtube'
+let spanSvggumroad = '.span-svg-gumroad'
+let spanSvgBadge = '.span-svg-badge'
+let spanSvgFiverr = '.span-svg-fiverr'
+let spanSvgUpwork = '.span-svg-upwork'
+let spanSvgFiverrClient = '.span-svg-fiverr-client'
+let spanSvgUpworkClient = '.span-svg-upwork-client'
+let spanSvgVerifiedClient = '.span-svg-verified-client'
+let spanSvgNext = '.span-svg-next'
+let spanSvgHtml = '.span-svg-html'
+let spanSvgCss = '.span-svg-css'
+let spanSvgNode = '.span-svg-node'
+let spanSvgZustand = '.span-svg-zustand'
+let spanSvgTanstack = '.span-svg-tanstack'
+let spanSvgShadcn = '.span-svg-shadcn'
+let spanSvgFramer = '.span-svg-framer'
+let spanSvgBun = '.span-svg-bun'
+let spanSvgElysia = '.span-svg-elysia'
+let spanSvgPlaywright = '.span-svg-playwright'
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    renderSvg(spanSvgCircles, circleSvg)
-    renderSvg(spanSvgAngular, angularSvg)
-    renderSvg(spanSvgBootstrap, bootstrapSvg)
-    renderSvg(spanSvgJasmine, jasmineSvg)
-    renderSvg(spanSvgCypress, cypressSvg)
-    renderSvg(spanSvgDjango, djangoSvg)
-    renderSvg(spanSvgKarma, karmaSvg)
-    renderSvg(spanSvgReact, reactSvg)
-    renderSvg(spanSvgRxjs, rxjsSvg)
-    renderSvg(spanSvgJs, jsSvg)
-    renderSvg(spanSvgTs, tsSvg)
-    renderSvg(spanSvgRedux, reduxSvg)
-    renderSvg(spanSvgTailwind, tailwindSvg)
-    renderSvg(spanSvgAntDesign, antDesignSvg)
-    renderSvg(spanSvgNetlify, netlifySvg)
-    renderSvg(spanSvgDirectTopRight, directTopRightSvg)
-    renderSvg(spanSvgCode, codeSvg)
-    renderSvg(spanSvgInstagram, instagramSvg)
-    renderSvg(spanSvgLeetcode, leetcodeSvg)
-    renderSvg(spanSvgBadge, badgeSvg)
-    renderSvg(spanSvgMail, mailSvg)
-    renderSvg(spanSvgMedium, mediumSvg)
-    renderSvg(spanSvgLinkedin, linkedinSvg)
-    renderSvg(spanSvgGithub, githubSvg)
-    renderSvg(spanSvgpainterest, pinterestSvg)
-    renderSvg(spanSvgyoutube, youtubeSvg)
-    renderSvg(spanSvggumroad, gumroadSvg)
-    renderSvg(spanSvgFiverr, fiverrSvg)
-    renderSvg(spanSvgUpwork, upworkSvg)
-    renderSvg(spanSvgFiverrClient, fiverrClientSvg)
-    renderSvg(spanSvgUpworkClient, upworkClientSvg)
-    renderSvg(spanSvgVerifiedClient, verifiedClientSvg)
-    renderSvg(spanSvgNext, nextSvg)
-    renderSvg(spanSvgHtml, htmlSvg)
-    renderSvg(spanSvgCss, cssSvg)
-    renderSvg(spanSvgNode, nodeSvg)
-    renderSvg(spanSvgZustand, zustandSvg)
-    renderSvg(spanSvgTanstack, tanstackSvg)
-    renderSvg(spanSvgShadcn, shadcnSvg)
-    renderSvg(spanSvgFramer, framerSvg)
-    renderSvg(spanSvgBun, bunSvg)
-    renderSvg(spanSvgElysia, elysiaSvg)
-    renderSvg(spanSvgPlaywright, playwrightSvg)
-  }, 10)
+const executeRender = () => {
+  renderSvg(spanSvgCircles, circleSvg)
+  renderSvg(spanSvgAngular, angularSvg)
+  renderSvg(spanSvgBootstrap, bootstrapSvg)
+  renderSvg(spanSvgJasmine, jasmineSvg)
+  renderSvg(spanSvgCypress, cypressSvg)
+  renderSvg(spanSvgDjango, djangoSvg)
+  renderSvg(spanSvgKarma, karmaSvg)
+  renderSvg(spanSvgReact, reactSvg)
+  renderSvg(spanSvgRxjs, rxjsSvg)
+  renderSvg(spanSvgJs, jsSvg)
+  renderSvg(spanSvgTs, tsSvg)
+  renderSvg(spanSvgRedux, reduxSvg)
+  renderSvg(spanSvgTailwind, tailwindSvg)
+  renderSvg(spanSvgAntDesign, antDesignSvg)
+  renderSvg(spanSvgNetlify, netlifySvg)
+  renderSvg(spanSvgDirectTopRight, directTopRightSvg)
+  renderSvg(spanSvgCode, codeSvg)
+  renderSvg(spanSvgInstagram, instagramSvg)
+  renderSvg(spanSvgLeetcode, leetcodeSvg)
+  renderSvg(spanSvgBadge, badgeSvg)
+  renderSvg(spanSvgMail, mailSvg)
+  renderSvg(spanSvgMedium, mediumSvg)
+  renderSvg(spanSvgLinkedin, linkedinSvg)
+  renderSvg(spanSvgGithub, githubSvg)
+  renderSvg(spanSvgpainterest, pinterestSvg)
+  renderSvg(spanSvgyoutube, youtubeSvg)
+  renderSvg(spanSvggumroad, gumroadSvg)
+  renderSvg(spanSvgFiverr, fiverrSvg)
+  renderSvg(spanSvgUpwork, upworkSvg)
+  renderSvg(spanSvgFiverrClient, fiverrClientSvg)
+  renderSvg(spanSvgUpworkClient, upworkClientSvg)
+  renderSvg(spanSvgVerifiedClient, verifiedClientSvg)
+  renderSvg(spanSvgNext, nextSvg)
+  renderSvg(spanSvgHtml, htmlSvg)
+  renderSvg(spanSvgCss, cssSvg)
+  renderSvg(spanSvgNode, nodeSvg)
+  renderSvg(spanSvgZustand, zustandSvg)
+  renderSvg(spanSvgTanstack, tanstackSvg)
+  renderSvg(spanSvgShadcn, shadcnSvg)
+  renderSvg(spanSvgFramer, framerSvg)
+  renderSvg(spanSvgBun, bunSvg)
+  renderSvg(spanSvgElysia, elysiaSvg)
+  renderSvg(spanSvgPlaywright, playwrightSvg)
+}
 
-})
+if (document.readyState === "complete" || document.readyState === "interactive") {
+  setTimeout(executeRender, 100);
+} else {
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(executeRender, 100);
+  });
+}

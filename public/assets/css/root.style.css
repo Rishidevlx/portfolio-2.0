@@ -17,7 +17,7 @@
 }
 
 :root.light-theme {
-  --body-color: #ffe240;
+  --body-color: white;
   --main-bg-color: #ffe240;
   --body-text-color: #132B3D;
 }

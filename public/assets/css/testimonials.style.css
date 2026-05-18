@@ -1,25 +1,65 @@
 :root {
   --t-card-border-color: #252527;
+  --t-card-bg-color: #252527;
   --slide-client-duration: 1s;
   --client-height: 6vh;
 }
 
 :root.light-theme {
   --t-card-border-color: #dcdcdc;
+  --t-card-bg-color: white;
+}
+
+:root.light-theme .testimonial-card-feedback {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .testimonials-section {
-  scroll-snap-type: x mandatory;
+  display: flex !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  position: relative;
+  scroll-snap-type: none !important;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.testimonials-track {
+  display: flex;
+  align-items: stretch; /* Stretch all cards to have the exact same height! */
+  gap: 2rem;
+  width: max-content;
+  animation: testimonials-marquee 28s linear infinite;
+  padding: 1.5rem 0;
+}
+
+.testimonials-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes testimonials-marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 1rem));
+  }
 }
 
 .testimonial-card {
-  scroll-snap-align: center;
+  flex-shrink: 0;
+  scroll-snap-align: none;
   padding: 1rem;
   max-width: 20rem;
   min-width: 15rem;
   overflow: hidden;
   text-decoration: none;
   color: var(--body-text-color);
+  
+  /* Flex layout to align connector & client info cleanly at the bottom! */
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonial-card:hover .client-redirect {
@@ -28,14 +68,26 @@
 
 .testimonial-card-feedback {
   border: 1px solid var(--t-card-border-color);
-  background-color: var(--t-card-border-color);
+  background-color: var(--t-card-bg-color);
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 1.2rem; /* Slightly larger padding for a premium card feel! */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   animation: slide-client-feedback calc(var(--slide-client-duration) * 2) calc(var(--slide-client-duration) * 2) forwards;
   transform-origin: bottom;
   transform: rotateX(90deg);
+  
+  /* Grow to fill all available vertical space, pushing profile to bottom! */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
+.testimonial-card-feedback p {
+  font-size: 0.95rem !important; /* Elegant larger readable font size! */
+  line-height: 1.6 !important; /* Luxurious comfortable line height! */
+  margin-bottom: 0.75rem;
+  font-family: inherit;
 }
 
 @keyframes slide-client-feedback {
@@ -55,7 +107,7 @@
 .testimonial-card-and-client-connector {
   height: 2rem;
   width: 25%;
-  background-color: var(--t-card-border-color);
+  background-color: var(--t-card-bg-color);
   clip-path: polygon(21% 34%, 21% 16%, 15% 0, 69% 0, 68% 10%, 64% 20%, 60% 31%, 53% 43%, 42% 54%, 29% 61%, 12% 65%, 19% 49%);
   /* clip-path: polygon(12% 56%, 13% 33%, 0 0, 100% 0, 99% 27%, 96% 48%, 89% 64%, 75% 79%, 54% 91%, 17% 97%, 0 100%, 7% 80%); */
   animation: slide-client-feedback calc(var(--slide-client-duration) * 2) calc(var(--slide-client-duration) * 1) forwards;
@@ -68,7 +120,8 @@
 .testimonial-card-client {
   display: flex;
   animation: slide-client-img-box var(--slide-client-duration) var(--slide-client-duration) forwards;
-  transform: translateX(-5vw)
+  transform: translateX(-5vw);
+  margin-top: auto; /* Always align at the very bottom! */
 }
 
 @keyframes slide-client-img-box {
@@ -79,11 +132,11 @@
 
 
 .testimonial-card-client-img-box {
-  width: var(--client-height) ;
-  height: var(--client-height) ;
+  width: var(--client-height);
+  height: var(--client-height);
   border-radius: var(--pritam);
   background: var(--your-color);
-  background-color: var(--t-card-border-color);
+  background-color: var(--t-card-bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,7 +150,7 @@
 
 .testimonial-card-client-border {
   border-radius: var(--pritam);
-  background-color: var(--t-card-border-color);
+  background-color: var(--t-card-bg-color);
   border: 2px solid white;
 }
 
