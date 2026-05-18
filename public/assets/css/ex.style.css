@@ -35,7 +35,7 @@
 
  .ex-card {
      /* color: var(--ex-card-color); */
-     font-size: 0.95rem; /* Elegant slightly larger font size for premium readability! */
+     font-size: 1.05rem; /* Elegant slightly larger font size for premium readability! */
      border-radius: var(--ex-border-radius);
      padding: var(--ex-border-padding);
      border: transparent;
@@ -173,7 +173,7 @@
   .company-container a {
       text-decoration: none;
       color: var(--body-text-color);
-      font-size: 1.15rem; /* Balanced larger text size for company links! */
+      font-size: 1.25rem; /* Balanced larger text size for company links! */
       display: flex;
       align-items: center;
       gap: calc(var(--ex-space) * 1);
@@ -250,6 +250,7 @@
   }
 
   .role-name {
+      font-size: 1.15rem;
       padding: var(--ex-space) 0 !important;
       margin: 0;
   }

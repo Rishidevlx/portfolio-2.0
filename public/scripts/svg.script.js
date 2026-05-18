@@ -1302,6 +1302,10 @@ const executeRender = () => {
   renderSvg(spanSvgPlaywright, playwrightSvg)
 }
 
+if (typeof window !== "undefined") {
+  window.executeRenderSvg = executeRender;
+}
+
 if (document.readyState === "complete" || document.readyState === "interactive") {
   setTimeout(executeRender, 100);
 } else {

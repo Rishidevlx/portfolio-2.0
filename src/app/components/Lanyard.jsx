@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import { useGLTF, useTexture, Environment, Lightformer } from "@react-three/drei";
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from "@react-three/rapier";
@@ -26,17 +26,18 @@ export default function Lanyard({ position = [0, 0, 14], gravity = [0, -40, 0], 
   }, []);
 
   return (
-    <div className="lanyard-wrapper">
+    <div className="lanyard-wrapper" style={{ width: "100%", height: "100%", minHeight: "560px", position: "relative", display: "flex", justifyContent: "center", alignItems: "center" }}>
       <Canvas
         camera={{ position: position, fov: fov }}
         dpr={[1, isMobile ? 1.5 : 2]}
-        gl={{ alpha: transparent }}
-        onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
+        gl={{ alpha: true, antialias: true }}
       >
         <ambientLight intensity={Math.PI} />
-        <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
-          <Band isMobile={isMobile} />
-        </Physics>
+        <Suspense fallback={null}>
+          <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
+            <Band isMobile={isMobile} />
+          </Physics>
+        </Suspense>
         <Environment blur={0.75}>
           <Lightformer
             intensity={2}
@@ -201,5 +202,5 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
 }
 
 // Pre-load static assets for instant R3F display
-useGLTF.preload(cardGLB);
-useTexture.preload(lanyardTexturePath);
+// useGLTF.preload(cardGLB);
+// useTexture.preload(lanyardTexturePath);
