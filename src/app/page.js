@@ -1088,7 +1088,71 @@ export default function Home() {
 
             {/*  Cute avatar starts  */}
             <section id="cute-avatar-section" className="cute-avatar-section">
-              <div className="cute-avatar-box">
+              <div className="cute-avatar-box" style={{ position: 'relative' }}>
+                {/* Cute speech bubble for Riha */}
+                <div style={{
+                  position: 'absolute',
+                  top: '-95px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  zIndex: 20,
+                  pointerEvents: 'none',
+                  animation: 'bounceBubble 3s infinite ease-in-out'
+                }}>
+                  <div style={{
+                    fontFamily: 'var(--body-font-family, inherit)',
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: 'var(--body-text-color, #1a1a1a)',
+                    background: 'var(--body-color, #ffffff)',
+                    border: '1.5px solid var(--ex-border-color, #8b5cf6)',
+                    padding: '8px 14px',
+                    borderRadius: '16px',
+                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.15)',
+                    whiteSpace: 'normal',
+                    textAlign: 'center',
+                    width: '210px',
+                    lineHeight: '1.4',
+                    position: 'relative'
+                  }}>
+                    Hey! I am Riha. Could you help me to be fashionable? 😻
+                    {/* Speech bubble triangle pointer */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '-8px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      width: '0',
+                      height: '0',
+                      borderLeft: '8px solid transparent',
+                      borderRight: '8px solid transparent',
+                      borderTop: '8px solid var(--ex-border-color, #8b5cf6)',
+                      zIndex: 1
+                    }} />
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '-6px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      width: '0',
+                      height: '0',
+                      borderLeft: '7px solid transparent',
+                      borderRight: '7px solid transparent',
+                      borderTop: '7px solid var(--body-color, #ffffff)',
+                      zIndex: 2
+                    }} />
+                  </div>
+                </div>
+                <style>{`
+                  @keyframes bounceBubble {
+                    0%, 100% { transform: translate(-50%, 0px); }
+                    50% { transform: translate(-50%, -5px); }
+                  }
+                `}</style>
+
                 <img aria-label="cute-avatar" loading="lazy" src="./assets/images/cute-avatar/cute-avatar.png" />
                 <img aria-label="head-decorator-img" loading="lazy"
                   src="./assets/images/cute-avatar/head-decorator-1-heart-leaves.png" />
@@ -1129,6 +1193,365 @@ export default function Home() {
           </div>
         </div>
         {/*  Fun zone section ends  */}
+
+        {/*  Footer section starts  */}
+        <footer style={{
+          background: 'var(--body-color, #0a0a0a)',
+          borderTop: '1.5px solid var(--ex-border-color, rgba(255, 255, 255, 0.08))',
+          padding: '5rem 2rem 2.2rem 2rem',
+          position: 'relative',
+          width: '100%',
+          zIndex: 10,
+          marginTop: '6rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '4.5rem',
+          fontFamily: 'var(--body-font-family, inherit)',
+          gridColumn: '1 / -1' // Span full page grid width
+        }}>
+          {/* Main Content Row */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '3rem',
+            width: '100%',
+            maxWidth: '1200px',
+            margin: '0 auto'
+          }}>
+            
+            {/* Left Column: Folder & Let's Connect */}
+            <div style={{
+              flex: '1 1 300px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '1.5rem',
+              padding: '1rem 0'
+            }}>
+              <div style={{
+                width: '140px',
+                height: '110px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <Folder size={1.3} color="#5227FF" />
+              </div>
+              <div style={{
+                textAlign: 'center',
+                fontFamily: 'var(--title-font-family, inherit)',
+                fontSize: '20px',
+                fontWeight: '800',
+                color: 'var(--body-text-color, snow)',
+                letterSpacing: '2px',
+                textTransform: 'uppercase',
+                opacity: 0.9,
+                marginTop: '0.5rem'
+              }}>
+                " Let's Connect "
+              </div>
+            </div>
+
+            {/* Right Columns Grid */}
+            <div style={{
+              flex: '1 1 600px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '3rem'
+            }}>
+              
+              {/* Column 1: Quick Links */}
+              <div style={{
+                flex: '1 1 150px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.8rem'
+              }}>
+                <h3 style={{
+                  color: 'var(--body-text-color, snow)',
+                  opacity: 0.6,
+                  fontSize: '18px',
+                  fontWeight: '700',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  margin: '0'
+                }}>
+                  Quick Links
+                </h3>
+                <ul style={{
+                  listStyle: 'none',
+                  padding: '0',
+                  margin: '0',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1rem'
+                }}>
+                  {[
+                    { name: 'Home', id: 'home' },
+                    { name: 'About', id: 'About-me' },
+                    { name: 'Skills', id: 'Skills' },
+                    { name: 'Experience', id: 'Experience' },
+                    { name: 'Projects', id: 'Projects' }
+                  ].map((link) => (
+                    <li key={link.name}>
+                      <a 
+                        href={`#${link.id}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const el = document.getElementById(link.id);
+                          if (el) {
+                            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }
+                        }}
+                        style={{
+                          color: 'var(--body-text-color, snow)',
+                          textDecoration: 'none',
+                          fontSize: '18px',
+                          fontWeight: '500',
+                          opacity: 0.85,
+                          transition: 'opacity 0.2s ease, transform 0.2s ease',
+                          display: 'inline-block'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.opacity = '1';
+                          e.currentTarget.style.transform = 'translateX(4px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.opacity = '0.85';
+                          e.currentTarget.style.transform = 'translateX(0)';
+                        }}
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Column 2: Social Links */}
+              <div style={{
+                flex: '1 1 180px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.8rem'
+              }}>
+                <h3 style={{
+                  color: 'var(--body-text-color, snow)',
+                  opacity: 0.6,
+                  fontSize: '18px',
+                  fontWeight: '700',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  margin: '0'
+                }}>
+                  Social Links
+                </h3>
+                <ul style={{
+                  listStyle: 'none',
+                  padding: '0',
+                  margin: '0',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1.2rem'
+                }}>
+                  {[
+                    { 
+                      label: 'LinkedIn', 
+                      href: 'https://www.linkedin.com/in/rishiaravindha',
+                      icon: (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#0077b5" style={{ marginRight: '10px', flexShrink: 0 }}>
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                      )
+                    },
+                    { 
+                      label: 'WhatsApp', 
+                      href: 'https://wa.link/5apdqm',
+                      icon: (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#25d366" style={{ marginRight: '10px', flexShrink: 0 }}>
+                          <path d="M12.004 0C5.372 0 0 5.373 0 12.001c0 2.118.553 4.184 1.597 6.009L.052 24l6.136-1.611a11.942 11.942 0 0 0 5.816 1.613c6.632 0 12.004-5.373 12.004-12.001C24.008 5.373 18.636 0 12.004 0zm6.817 17.027c-.279.789-1.395 1.45-1.921 1.503-.526.053-1.077.079-3.238-.79-2.761-1.11-4.516-3.921-4.654-4.108-.139-.187-1.121-1.493-1.121-2.851 0-1.358.706-2.022.957-2.285.25-.263.548-.329.73-.329s.365.003.523.01c.162.008.38-.063.593.454.219.533.75 1.826.813 1.958.063.132.105.286.018.462-.088.176-.132.286-.263.44-.132.154-.278.344-.396.462-.132.132-.271.275-.117.539.154.264.685 1.128 1.468 1.823.992.89 1.83 1.168 2.087 1.298.257.13.407.109.56-.067.153-.176.657-.768.831-1.028.174-.26.349-.22.589-.13.24.09 1.527.72 1.79.851.263.131.438.197.504.308.066.11.066.643-.213 1.432z"/>
+                        </svg>
+                      )
+                    },
+                    { 
+                      label: 'Mail', 
+                      href: 'mailto:rishiaravindhaoff@gmail.com',
+                      icon: (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#ea4335" style={{ marginRight: '10px', flexShrink: 0 }}>
+                          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                      )
+                    },
+                    { 
+                      label: 'GitHub', 
+                      href: 'https://github.com/Rishidevlx',
+                      icon: (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '10px', flexShrink: 0 }}>
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                      )
+                    },
+                    { 
+                      label: 'Phone No', 
+                      href: 'tel:+918590605554', 
+                      text: '+91 8590605554',
+                      icon: (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '10px', flexShrink: 0 }}>
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                      )
+                    }
+                  ].map((social) => (
+                    <li key={social.label}>
+                      <a 
+                        href={social.href}
+                        target={social.label !== 'Mail' && social.label !== 'Phone No' ? '_blank' : undefined}
+                        rel={social.label !== 'Mail' && social.label !== 'Phone No' ? 'noopener noreferrer' : undefined}
+                        style={{
+                          color: 'var(--body-text-color, snow)',
+                          textDecoration: 'none',
+                          fontSize: '18px',
+                          fontWeight: '500',
+                          opacity: 0.85,
+                          transition: 'opacity 0.2s ease, transform 0.2s ease',
+                          display: 'inline-flex',
+                          alignItems: 'center'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.opacity = '1';
+                          e.currentTarget.style.transform = 'translateX(4px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.opacity = '0.85';
+                          e.currentTarget.style.transform = 'translateX(0)';
+                        }}
+                      >
+                        {social.icon}
+                        <span>{social.text || social.label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Column 3: Contact */}
+              <div style={{
+                flex: '1 1 200px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.8rem'
+              }}>
+                <h3 style={{
+                  color: 'var(--body-text-color, snow)',
+                  opacity: 0.6,
+                  fontSize: '18px',
+                  fontWeight: '700',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  margin: '0'
+                }}>
+                  Contact
+                </h3>
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1.2rem',
+                  fontSize: '18px',
+                  color: 'var(--body-text-color, snow)',
+                  opacity: 0.85,
+                  lineHeight: '1.6'
+                }}>
+                  <a 
+                    href="mailto:rishiaravindhaoff@gmail.com"
+                    style={{
+                      color: 'var(--body-text-color, snow)',
+                      textDecoration: 'none',
+                      opacity: 0.95,
+                      transition: 'opacity 0.2s ease',
+                      display: 'inline-flex',
+                      alignItems: 'center'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+                    onMouseLeave={(e) => e.currentTarget.style.opacity = '0.95'}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '10px', flexShrink: 0 }}>
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>rishiaravindhaoff@gmail.com</span>
+                  </a>
+                  <p style={{ margin: '0', fontSize: '17px', display: 'inline-flex', alignItems: 'flex-start' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '10px', marginTop: '4px', flexShrink: 0 }}>
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>
+                      138, mudhaliyaar patti street,<br />
+                      srivilliputhur, virudhunagar,<br />
+                      Tamilnadu, India
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Huge "RISHI.DEV" Text background element */}
+          <div style={{
+            width: '100%',
+            textAlign: 'center',
+            marginTop: '3.5rem',
+            userSelect: 'none',
+            pointerEvents: 'none'
+          }}>
+            <h1 style={{
+              fontSize: 'clamp(3rem, 15vw, 11rem)',
+              fontWeight: '900',
+              fontFamily: 'var(--title-font-family, sans-serif)',
+              letterSpacing: '4px',
+              textTransform: 'uppercase',
+              margin: '0',
+              lineHeight: '0.8',
+              background: 'linear-gradient(to bottom, var(--body-text-color, snow), transparent)',
+              opacity: 0.12, // Increased from 0.05 to 0.12 for great contrast
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>
+              RISHI.DEV
+            </h1>
+          </div>
+
+          {/* Tiny Copyright Bottom bar */}
+          <div style={{
+            borderTop: '1px solid var(--ex-border-color, rgba(255, 255, 255, 0.08))',
+            paddingTop: '1.8rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '1rem',
+            fontSize: '15px',
+            color: 'var(--body-text-color, snow)',
+            opacity: 0.65,
+            width: '100%',
+            maxWidth: '1200px',
+            margin: '0 auto'
+          }}>
+            <div>
+              © {new Date().getFullYear()} RISHI.DEV. All rights reserved.
+            </div>
+            <div>
+              Designed & Developed with ❤️ by <span style={{ color: '#8b5cf6', fontWeight: '600' }}>Rishi Aravindha</span>
+            </div>
+          </div>
+
+        </footer>
 
 
 

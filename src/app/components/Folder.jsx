@@ -77,7 +77,7 @@ const Folder = ({ color = '#5227FF', size = 1.6, className = '' }) => {
   const items = [
     {
       id: 'whatsapp',
-      href: 'https://wa.me/917003058865',
+      href: 'https://wa.link/5apdqm',
       label: 'WhatsApp',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="#25d366">
@@ -87,7 +87,7 @@ const Folder = ({ color = '#5227FF', size = 1.6, className = '' }) => {
     },
     {
       id: 'mail',
-      href: 'mailto:debnathpritam0802@gmail.com',
+      href: 'mailto:rishiaravindhaoff@gmail.com',
       label: 'Email',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="#ea4335">
@@ -97,7 +97,7 @@ const Folder = ({ color = '#5227FF', size = 1.6, className = '' }) => {
     },
     {
       id: 'linkedin',
-      href: 'https://www.linkedin.com/in/pritam-debnath-762019239',
+      href: 'https://www.linkedin.com/in/rishiaravindha',
       label: 'LinkedIn',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="#0077b5">
@@ -133,8 +133,8 @@ const Folder = ({ color = '#5227FF', size = 1.6, className = '' }) => {
                   rel="noopener noreferrer"
                   onClick={e => e.stopPropagation()} // Stop closing folder when clicking a link
                   className="w-full h-full flex items-center justify-center transition-transform hover:scale-110"
-                  title={`Open Pritam's ${item.label}`}
-                  aria-label={`Open Pritam's ${item.label}`}
+                  title={`Open Rishi's ${item.label}`}
+                  aria-label={`Open Rishi's ${item.label}`}
                 >
                   {item.icon}
                 </a>
