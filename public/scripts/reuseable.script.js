@@ -1,0 +1,191 @@
+let getRandomNumber = (start, end) => {
+  let randomNumber = Math.random() * (end - start) + start;
+  return Math.round(randomNumber)
+}
+
+
+////
+const img = ".show-img-skeleton"
+document.querySelectorAll(img)
+  .forEach(img => {
+    img.addEventListener("load", () => {
+      img.classList.add("img-loaded");
+      setTimeout(() => {
+        img.parentElement.classList.remove("skeleton");
+      }, 0);
+    });
+  });
+
+
+
+
+function fadeTypingAnimation(element, text, speed = 50) {
+  // console.log({text});
+
+  element.innerHTML = ''; // Clear previous content
+  let words = text.split(' '); // Split text into words
+  let i = 0;
+  let j = 0;
+
+  function typeWord() {
+    if (i < words.length) {
+      let wordSpan = document.createElement('span'); // Wrap each word
+      wordSpan.classList.add('fade-word');
+      element.appendChild(wordSpan);
+      function typeLetter() {
+        if (j < words[i].length) {
+          let letterSpan = document.createElement('span');
+          letterSpan.classList.add('fade-letter');
+          letterSpan.style.opacity = '0'; // Start hidden
+          const word = words[i][j]
+          if (word == "/") {
+            const br = document.createElement('div')
+            br.classList = 'break'
+            element.append(br);
+          } else {
+            letterSpan.innerText = word; // Add letter
+          }
+          wordSpan.appendChild(letterSpan);
+
+          setTimeout(() => {
+            letterSpan.style.opacity = '1'; // Fade in
+          }, speed / 2);
+
+          j++;
+          setTimeout(typeLetter, speed);
+        } else {
+          j = 0; // Reset letter index for next word
+          i++;
+          wordSpan.innerHTML += '&nbsp;'; // Add space after word
+          setTimeout(typeWord, speed); // Type next word
+        }
+      }
+
+      typeLetter(); // Start typing the first letter of the word
+    } else {
+      element.style.borderRight = 'none'; // Remove cursor effect
+    }
+  }
+
+  typeWord();
+}
+
+// Modal functionality - common elements and functions
+let modalElements = {
+  contentBox: null,
+  modalOverlay: null,
+  modal: null,
+  modalTitle: null,
+  closeBtn: null
+};
+
+// Initialize modal elements
+function initModalElements() {
+  modalElements.contentBox = document.getElementById('rc-content-box');
+  modalElements.modalOverlay = document.getElementById('modalOverlay');
+  modalElements.modal = document.getElementById('modal');
+  modalElements.modalTitle = document.getElementById('modalTitle');
+  modalElements.closeBtn = document.getElementById('close-btn');
+}
+
+// Generic function to open modal
+function openModal(title, onOpenCallback = null) {
+  if (!modalElements.modalOverlay || !modalElements.modal || !modalElements.modalTitle) {
+    initModalElements();
+  }
+
+  if (title) {
+    modalElements.modalTitle.innerText = title;
+  }
+
+  modalElements.modalOverlay.classList.add('show');
+  modalElements.modal.classList.add('show');
+
+  // Call custom callback if provided
+  if (onOpenCallback && typeof onOpenCallback === 'function') {
+    onOpenCallback();
+  }
+}
+
+// Generic function to close modal
+function closeModal(onCloseCallback = null) {
+  if (!modalElements.modalOverlay || !modalElements.modal) {
+    initModalElements();
+  }
+
+  modalElements.modalOverlay.classList.remove('show');
+  modalElements.modal.classList.remove('show');
+
+  // Clear URL parameter when closing
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+
+  // Call custom callback if provided
+  if (onCloseCallback && typeof onCloseCallback === 'function') {
+    onCloseCallback();
+  }
+}
+
+// Store original close handler for potential removal
+let defaultCloseHandler = closeModal;
+
+// Setup modal event listeners (close button and click outside)
+function setupModalListeners() {
+  if (!modalElements.closeBtn || !modalElements.modalOverlay) {
+    initModalElements();
+  }
+
+  // Close button handler
+  if (modalElements.closeBtn) {
+    defaultCloseHandler = closeModal;
+    modalElements.closeBtn.addEventListener('click', defaultCloseHandler);
+  }
+
+  // Click outside to close
+  if (modalElements.modalOverlay) {
+    modalElements.modalOverlay.onclick = function (event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    };
+  }
+}
+
+// Function to replace close handler (for scripts that need custom cleanup)
+function replaceCloseHandler(customHandler) {
+  if (!modalElements.closeBtn) {
+    initModalElements();
+  }
+
+  if (modalElements.closeBtn && defaultCloseHandler) {
+    modalElements.closeBtn.removeEventListener('click', defaultCloseHandler);
+    modalElements.closeBtn.addEventListener('click', customHandler);
+    defaultCloseHandler = customHandler;
+  }
+}
+
+// Initialize modal on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initModalElements();
+    setupModalListeners();
+  });
+} else {
+  initModalElements();
+  setupModalListeners();
+}
+
+/// socials
+setTimeout(() => {
+  const svgs = document.querySelectorAll(".animate-svg")
+  svgs.forEach(svg => {
+    const play = () => {
+      const animations = svg.querySelectorAll("animate")
+      animations.forEach(anim => {
+        anim.beginElement()
+      })
+    }
+
+    svg.addEventListener("mouseenter", play)
+    svg.addEventListener("focus", play)
+  })
+}, 0);
