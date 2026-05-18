@@ -3,6 +3,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 const Lanyard = dynamic(() => import('./components/Lanyard'), { ssr: false });
 const ThreeDCarousel = dynamic(() => import('./components/ThreeDCarousel'), { ssr: false });
+const Folder = dynamic(() => import('./components/Folder'), { ssr: false });
 
 const frontendSkills = [
   { name: 'Angular', href: 'https://angular.dev/', iconClass: 'span-svg-angular' },
@@ -1008,23 +1009,67 @@ export default function Home() {
         <div id="Testimonials">
 
           <h2 className="section-h2">Testimonials</h2>
-          <div style={{ 
-            width: '78%', 
-            maxWidth: '780px', 
-            height: '560px', 
-            background: 'var(--body-color, #0a0a0a)', 
-            border: '1.5px solid var(--ex-border-color, rgba(255, 255, 255, 0.08))',
-            borderRadius: '24px',
-            display: 'flex', 
-            justifyContent: 'center', 
+          <div style={{
+            display: 'flex',
             alignItems: 'center',
-            margin: '2.5rem 22% 2.5rem 0',
+            justifyContent: 'space-between',
+            gap: '2rem',
+            width: '100%',
+            flexWrap: 'wrap',
+            margin: '2.5rem 0',
             position: 'relative',
-            zIndex: 10,
-            overflow: 'hidden',
-            boxShadow: 'none'
+            zIndex: 10
           }}>
-            <ThreeDCarousel />
+            {/* Left Child: 3D Carousel Container */}
+            <div style={{ 
+              flex: '1 1 76%',
+              maxWidth: '850px', 
+              height: '560px', 
+              background: 'var(--body-color, #0a0a0a)', 
+              border: '1.5px solid var(--ex-border-color, rgba(255, 255, 255, 0.08))',
+              borderRadius: '24px',
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center',
+              overflow: 'hidden',
+              boxShadow: 'none'
+            }}>
+              <ThreeDCarousel />
+            </div>
+
+            {/* Right Child: Folder Container */}
+            <div style={{
+              flex: '1 1 20%',
+              minWidth: '220px',
+              height: '560px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '2.5rem',
+              position: 'relative'
+            }}>
+              <div style={{ 
+                height: '140px', 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center' 
+              }}>
+                <Folder size={1.6} color="#5227FF" />
+              </div>
+              <div style={{
+                textAlign: 'center',
+                fontFamily: 'var(--title-font-family, inherit)',
+                fontSize: '18px',
+                fontWeight: '600',
+                color: 'var(--body-text-color, snow)',
+                letterSpacing: '1px',
+                textTransform: 'uppercase',
+                opacity: 0.85
+              }}>
+                " Open file to close the deal "
+              </div>
+            </div>
           </div>
         </div>
         {/*  Testimonials section ends  */}
