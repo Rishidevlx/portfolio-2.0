@@ -586,17 +586,11 @@ export default function Home() {
   </div>
 
   {/*  Skills section starts  */}
-  <div className="join-ex-and-skill z-index-2"></div>
-
-  {/* Lanyard 3D component */}
-  <div style={{ width: '100%', height: '500px', position: 'relative' }}>
-    <Lanyard position={[0, 0, 30]} gravity={[0, -40, 0]} fov={20} transparent={true} />
-  </div>
 
   <div className="bg-black-blur" style={{padding: '1rem 1rem'}}>
 
 
-    <div className="grid-col1-md-col2" id="Skills">
+    <div id="Skills">
       <div className="min-width-400px-width-50per">
 
         <h2 className="section-h2">Skills</h2>
@@ -789,57 +783,9 @@ export default function Home() {
               </a>
             </div>
           </div>
-
         </section>
       </div>
       {/*  Skills section ends  */}
-      {/*  Certifications section starts  */}
-      <div className="min-width-400px-width-50per" id="Certifications">
-
-        <h2 className="section-h2">Certifications </h2>
-        <div className="skill-container">
-          <h3>
-            Frontend
-          </h3>
-        </div>
-
-        <section id="certification-section">
-          <div>
-
-            <a className="certification-link" target="_blank"
-              href="https://coursera.org/share/5d838ed21ecbf91f093cb447bc8d290b"
-              aria-label="View Advance React by Meta certification">
-              <span className="span-svg-badge" style={{display: 'flex', alignItems: 'center'}}></span>
-              Advance React by Meta
-              <span className="span-svg-direct-top-right stroke-primary project-redirect-link-icon"></span>
-            </a>
-          </div>
-
-          <div>
-
-            <a className="certification-link" target="_blank"
-              href="https://www.coursera.org/account/accomplishments/verify/QH2RG4W2565Z"
-              aria-label="View Programming with JavaScript by Meta certification">
-              <span className="span-svg-badge" style={{display: 'flex', alignItems: 'center'}}></span>
-              Programming with JavaScript by Meta
-              <span className="span-svg-direct-top-right stroke-primary project-redirect-link-icon"></span>
-            </a>
-          </div>
-
-          <div>
-
-            <a className="certification-link" target="_blank"
-              href="https://www.udemy.com/certificate/UC-032ad846-58f3-44e5-b183-b51b7216e3f0/"
-              aria-label="View The Complete JavaScript Course 2023 certification">
-              <span className="span-svg-badge" style={{display: 'flex', alignItems: 'center'}}></span>
-              The Complete JavaScript Course 2023: From Zero to Expert!
-              <span className="span-svg-direct-top-right stroke-primary project-redirect-link-icon"></span>
-            </a>
-          </div>
-
-        </section>
-      </div>
-      {/*  Certifications section ends  */}
     </div>
 
     {/*  Testimonials section starts  */}
@@ -1018,37 +964,19 @@ export default function Home() {
     {/*  Testimonials section ends  */}
 
     {/*  About me section starts  */}
-    <div className="grid-col1-md-col2" style={{gap: '1.5rem'}} id="About-me">
-      <div className="min-width-400px-width-50per">
-        <h2 className="section-h2">About me </h2>
+    <div id="About-me" style={{ padding: '1rem 0' }}>
+      <div>
+        <h2 className="section-h2">About me</h2>
         <section id="about-me-section">
           {/*  I'm Pritam Debnath a Frontend Developer with over 3 years of work experience, specializing in web application
           development. I'm passionate about crafting engaging user experiences and leveraging cutting-edge technologies
           to bring ideas to life.  */}
           {/*  Format might break it  */}
-I’m Pritam Debnath, I build frontend systems that are designed to feel simple, even when the underlying logic isn’t. 
-/ With around 3 + years of experience, I focus on handling edge cases properly and making thoughtful UI decisions that hold up in real-world usage.
+          I’m Pritam Debnath, I build frontend systems that are designed to feel simple, even when the underlying logic isn’t. 
+          / With around 3 + years of experience, I focus on handling edge cases properly and making thoughtful UI decisions that hold up in real-world usage.
           {/*  /n I’m especially interested in products where frontend plays a critical role in shaping the overall experience, not just the interface.  */}
         </section>
       </div>
-
-      {/*  Recent activity section starts  */}
-      <div className="min-width-400px-width-50per" style={{display: 'flex', alignItems: 'stretch', flexDirection: 'column'}}>
-
-        <h2 className="section-h2">Pieces I recently - </h2>
-        <section id="recent-activity-section">
-          <div className="rc-container">
-            <button className="rc-card" id="rc-card-drew">Drew</button>
-            <button className="rc-card" id="rc-card-wrote">Wrote</button>
-
-            <button className="rc-card" id="rc-card-read">Read</button>
-          </div>
-
-        </section>
-      </div>
-      {/*  Recent activity section ends  */}
-
-
     </div>
     {/*  About me section ends  */}
 
@@ -1106,117 +1034,7 @@ I’m Pritam Debnath, I build frontend systems that are designed to feel simple,
     </div>
     {/*  Fun zone section ends  */}
 
-    {/*  Socials section starts  */}
-    <div className="min-width-400px-width-50per" style={{display: 'flex', alignItems: 'stretch', flexDirection: 'column'}}>
 
-      <h2 className="section-h2" id="Socials">Socials</h2>
-      <div className="footer-container-copy-right text-xs flex-wrap" id="social-icon-container ">
-        <a href="https://leetcode.com/u/PriDebnath/" title="leetcode" className="social-icon-box animate-svg"
-          target="_blank" aria-label="Visit Pritam's LeetCode profile">
-          <span className="span-svg-leetcode flex"></span>
-          <span>Leetcode</span>
-        </a>
-        <a href="https://www.instagram.com/pri._.debnath" title="instagram" className="social-icon-box animate-svg"
-          target="_blank" aria-label="Visit Pritam's Instagram profile">
-          <span className="span-svg-instagram flex"></span>
-          <span>Instagram</span>
-        </a>
-
-
-        <a href="https://www.upwork.com/freelancers/~01400b0b989988e8cc" className="social-icon-box animate-svg"
-          target="_blank" title="Upwork" aria-label="Visit Pritam's upwork profile">
-          <span className="span-svg-upwork flex"></span>
-          <span>Upwork</span>
-        </a>
-        <a href="https://www.fiverr.com/pridebnath?public_mode=true" className="social-icon-box animate-svg" target="_blank"
-          title="fiverr" aria-label="Visit Pritam's Fiverr profile">
-          <span className="span-svg-fiverr flex"></span>
-          <span>Fiverr</span>
-        </a>
-
-        <a href="https://www.linkedin.com/in/pritam-debnath-762019239" className="social-icon-box animate-svg"
-          target="_blank" title="linkedin" aria-label="Visit Pritam's LinkedIn profile">
-          <span className="span-svg-linkedin flex"></span>
-          <span>Linkedin</span>
-        </a>
-
-        <a href="https://medium.com/@pritam-debnath" className="social-icon-box animate-svg" target="_blank" title="medium"
-          aria-label="Visit Pritam's Medium profile">
-          <span className="span-svg-medium flex"></span>
-          <span>Medium</span>
-
-        </a>
-
-        <a href="https://github.com/PriDebnath" className="social-icon-box animate-svg" target="_blank" title="github"
-          aria-label="Visit Pritam's GitHub profile">
-          <span className="span-svg-github flex" style={{color: 'inherit'}}></span>
-          <span>GitHub</span>
-
-        </a>
-
-        <a href="https://in.pinterest.com/PriDebnath/_created" className="social-icon-box animate-svg" target="_blank"
-          title="painterest" aria-label="Visit Pritam's Pinterest profile">
-          <span className="span-svg-painterest flex"></span>
-          <span>Painterest</span>
-        </a>
-
-        {/*  <a href="https://in.pinterest.com/PriDebnath/" className="social-icon-box animate-svg" target="_blank"
-          title="youtube" aria-label="Visit Pritam's youtube profile">
-          <span className="span-svg-youtube flex"></span>
-          <span>Youtube</span>
-        </a>  */}
-
-        <a href="https://gumroad.com/PriDebnath/" className="social-icon-box animate-svg" target="_blank" title="gumroad"
-          aria-label="Visit Pritam's Gumroad profile">
-          <span className="span-svg-gumroad flex"></span>
-          <span>Gumroad</span>
-        </a>
-
-        <a href="mailto:debnathpritam0802@gmail.com" className="social-icon-box animate-svg" target="_blank" title="mail"
-          aria-label="Send email to Pritam Debnath">
-          <span className="span-svg-mail flex"></span>
-          <span>Gmail</span>
-
-        </a>
-      </div>
-    </div>
-    {/*  Socials section ends  */}
-
-
-
-    <canvas id="confettiCanvas"></canvas>
-
-    {/*  Footer section starts  */}
-    <footer id="footer">
-      <button className="footer-container" id="footer-container">
-        <svg className="border-svg" width="100%" height="100%" viewBox="0 0 250 150" preserveAspectRatio="none">
-          <path className="footer-border-path right" />
-          <path className="footer-border-path left" />
-        </svg>
-        <div className="footer-container-child">
-          <div className="image-box">
-            <img src="./assets/images/pri.jpg" className="pri" alt="Pritam Debnath - Software Developer Portfolio"
-              decoding="async" title="Pritam Debnath - Software Developer" />
-          </div>
-          <div className="text-box">
-            <span className="white-space-nowrap">Made with</span> <span className="heart" id="heart">❤️</span><span
-              className="white-space-nowrap"> by Pritam</span>
-          </div>
-        </div>
-      </button>
-
-      <div className="footer-container-copy-right" style={{margin: '1rem'}}>
-        <span style={{padding: '0 0.5rem'}}>
-          &copy;
-        </span>
-        <span>
-          Copyright? Nope. Copy-left!
-          <br />
-          Take it, use it, make it better! 😼
-        </span>
-      </div>
-    </footer>
-    {/*  Footer section ends  */}
 
 
 
