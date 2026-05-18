@@ -1082,77 +1082,77 @@ export default function Home() {
         {/*  Fun zone section starts  */}
         <div className="min-width-400px-width-50per" style={{ display: 'flex', flexDirection: 'column' }}>
 
-          <h2 className="section-h2" id="fun-zone">Fun zone</h2>
+          <h2 className="section-h2" id="fun-zone" style={{ textAlign: 'center' }}>Fun zone</h2>
           <div className=" flex flex-wrap card cute-avatar-container" id=" " style={{ gap: '0' }}>
 
 
             {/*  Cute avatar starts  */}
-            <section id="cute-avatar-section" className="cute-avatar-section">
-              <div className="cute-avatar-box" style={{ position: 'relative' }}>
-                {/* Cute speech bubble for Riha */}
+            <section id="cute-avatar-section" className="cute-avatar-section" style={{ position: 'relative', overflow: 'visible' }}>
+              {/* Cute speech bubble for Riha */}
+              <div style={{
+                position: 'absolute',
+                top: '-105px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                zIndex: 20,
+                pointerEvents: 'none',
+                animation: 'bounceBubble 3s infinite ease-in-out'
+              }}>
                 <div style={{
-                  position: 'absolute',
-                  top: '-95px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  zIndex: 20,
-                  pointerEvents: 'none',
-                  animation: 'bounceBubble 3s infinite ease-in-out'
+                  fontFamily: 'var(--body-font-family, inherit)',
+                  fontSize: '16px',
+                  fontWeight: '700',
+                  color: 'var(--body-text-color, #1a1a1a)',
+                  background: 'var(--body-color, #ffffff)',
+                  border: '1.5px solid var(--ex-border-color, #8b5cf6)',
+                  padding: '10px 16px',
+                  borderRadius: '16px',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.15)',
+                  whiteSpace: 'normal',
+                  textAlign: 'center',
+                  width: '240px',
+                  lineHeight: '1.4',
+                  position: 'relative'
                 }}>
+                  Hi, I’m Riha 🥹… I don’t really know how to be fashionable… will you guide me and make me modern, pretty please?👉🏻👈🏻
+                  {/* Speech bubble triangle pointer */}
                   <div style={{
-                    fontFamily: 'var(--body-font-family, inherit)',
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    color: 'var(--body-text-color, #1a1a1a)',
-                    background: 'var(--body-color, #ffffff)',
-                    border: '1.5px solid var(--ex-border-color, #8b5cf6)',
-                    padding: '8px 14px',
-                    borderRadius: '16px',
-                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.15)',
-                    whiteSpace: 'normal',
-                    textAlign: 'center',
-                    width: '210px',
-                    lineHeight: '1.4',
-                    position: 'relative'
-                  }}>
-                    Hey! I am Riha. Could you help me to be fashionable? 😻
-                    {/* Speech bubble triangle pointer */}
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '-8px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      width: '0',
-                      height: '0',
-                      borderLeft: '8px solid transparent',
-                      borderRight: '8px solid transparent',
-                      borderTop: '8px solid var(--ex-border-color, #8b5cf6)',
-                      zIndex: 1
-                    }} />
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '-6px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      width: '0',
-                      height: '0',
-                      borderLeft: '7px solid transparent',
-                      borderRight: '7px solid transparent',
-                      borderTop: '7px solid var(--body-color, #ffffff)',
-                      zIndex: 2
-                    }} />
-                  </div>
+                    position: 'absolute',
+                    bottom: '-8px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '0',
+                    height: '0',
+                    borderLeft: '8px solid transparent',
+                    borderRight: '8px solid transparent',
+                    borderTop: '8px solid var(--ex-border-color, #8b5cf6)',
+                    zIndex: 1
+                  }} />
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '-6px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '0',
+                    height: '0',
+                    borderLeft: '7px solid transparent',
+                    borderRight: '7px solid transparent',
+                    borderTop: '7px solid var(--body-color, #ffffff)',
+                    zIndex: 2
+                  }} />
                 </div>
-                <style>{`
-                  @keyframes bounceBubble {
-                    0%, 100% { transform: translate(-50%, 0px); }
-                    50% { transform: translate(-50%, -5px); }
-                  }
-                `}</style>
+              </div>
+              <style>{`
+                @keyframes bounceBubble {
+                  0%, 100% { transform: translate(-50%, 0px); }
+                  50% { transform: translate(-50%, -5px); }
+                }
+              `}</style>
 
+              <div className="cute-avatar-box">
                 <img aria-label="cute-avatar" loading="lazy" src="./assets/images/cute-avatar/cute-avatar.png" />
                 <img aria-label="head-decorator-img" loading="lazy"
                   src="./assets/images/cute-avatar/head-decorator-1-heart-leaves.png" />
