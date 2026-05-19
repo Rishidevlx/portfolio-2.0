@@ -178,3 +178,39 @@ div[aria-label="head-decorators-button-container"], div[aria-label="decorators-b
     }
 
 }
+
+.fun-zone-title {
+    text-align: center;
+}
+
+/* =============================================
+   MOBILE VIEW CUSTOM OVERRIDES (under 768px)
+   ============================================= */
+@media (max-width: 767px) {
+    /* 1. Move Riha's speech bubble up slightly so it doesn't overlap the decorators/head */
+    .riha-speech-bubble {
+        top: -130px !important;
+    }
+
+    /* 2. Align the Fun Zone title to the left and adjust padding to move it up slightly */
+    .fun-zone-title {
+        text-align: left !important;
+        padding-left: 1.2rem !important;
+        padding-top: 2rem !important; /* Move it up from default 5rem */
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* 3. Vertically stack the head decorators buttons to make them user-friendly and touch-friendly */
+    div[aria-label="head-decorators-button-container"] {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.65rem !important;
+        overflow: visible !important;
+    }
+
+    div[aria-label="head-decorators-button-container"] .change-decorator-button {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 0.65rem 1rem !important;
+    }
+}

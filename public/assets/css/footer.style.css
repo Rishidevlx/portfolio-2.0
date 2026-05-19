@@ -91,12 +91,6 @@ footer .text-box {
     max-width: 200px;
 }
 
-.pri:hover {
-    /* border-radius: 51% 49% 46% 54% / 78% 24% 76% 22%; */
-
-}
-
-
 .heart {
     display: inline-block;
     animation: heartbeat 1s infinite ease-in-out;
@@ -178,4 +172,15 @@ i {
     pointer-events: none;
     /* 🔹 allows clicks to pass through */
 
+}
+
+/* =============================================
+   MOBILE VIEW CUSTOM OVERRIDES (under 768px)
+   ============================================= */
+@media (max-width: 767px) {
+    /* Adjust giant background text size & spacing on mobile so it fits completely without cutting off */
+    .footer-huge-text {
+        font-size: clamp(2rem, 11vw, 5rem) !important;
+        letter-spacing: 2px !important;
+    }
 }

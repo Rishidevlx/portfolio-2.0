@@ -1100,14 +1100,14 @@ export default function Home() {
         {/*  Fun zone section starts  */}
         <div className="min-width-400px-width-50per" style={{ display: 'flex', flexDirection: 'column' }}>
 
-          <h2 className="section-h2" id="fun-zone" style={{ textAlign: 'center' }}>Fun zone</h2>
+          <h2 className="section-h2 fun-zone-title" id="fun-zone">Fun zone</h2>
           <div className=" flex flex-wrap card cute-avatar-container" id=" " style={{ gap: '0' }}>
 
 
             {/*  Cute avatar starts  */}
             <section id="cute-avatar-section" className="cute-avatar-section" style={{ position: 'relative', overflow: 'visible' }}>
               {/* Cute speech bubble for Riha */}
-              <div style={{
+              <div className="riha-speech-bubble" style={{
                 position: 'absolute',
                 top: '-105px',
                 left: '50%',
@@ -1528,7 +1528,7 @@ export default function Home() {
             userSelect: 'none',
             pointerEvents: 'none'
           }}>
-            <h1 style={{
+            <h1 className="footer-huge-text" style={{
               fontSize: 'clamp(3rem, 15vw, 11rem)',
               fontWeight: '900',
               fontFamily: 'var(--title-font-family, sans-serif)',
