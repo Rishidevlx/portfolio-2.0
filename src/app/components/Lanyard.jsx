@@ -18,12 +18,18 @@ const lanyardTexturePath = "/assets/lanyard/lanyard.png";
 
 export default function Lanyard({ position = [0, 0, 14], gravity = [0, -40, 0], fov = 20, transparent = true }) {
   const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.innerWidth < 768);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  if (!mounted) {
+    return <div className="lanyard-wrapper" style={{ width: "100%", height: "100%", minHeight: "560px", position: "relative" }} />;
+  }
 
   return (
     <div className="lanyard-wrapper" style={{ width: "100%", height: "100%", minHeight: "560px", position: "relative", display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -164,9 +170,9 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
-            onPointerUp={(e) => { e.target.releasePointerCapture(e.pointerId); drag(false); }}
+            onPointerUp={(e) => { e.target.releasePointerCapture?.(e.pointerId); drag(false); }}
             onPointerDown={(e) => {
-              e.target.setPointerCapture(e.pointerId);
+              e.target.setPointerCapture?.(e.pointerId);
               drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())));
             }}
           >

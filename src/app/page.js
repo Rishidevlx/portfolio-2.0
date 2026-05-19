@@ -346,9 +346,23 @@ export default function Home() {
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
-      setTimeout(() => {
+      const render = () => {
         window.executeRenderSvg?.();
-      }, 50);
+      };
+
+      render();
+
+      // Poll every 100ms for 3 seconds to ensure SVGs are rendered even if the script loads late
+      const interval = setInterval(() => {
+        if (window.executeRenderSvg) {
+          render();
+        }
+      }, 100);
+
+      // Clean up after 3 seconds
+      const timeout = setTimeout(() => {
+        clearInterval(interval);
+      }, 3000);
 
       // Re-observe company containers for entrance scale-up animation
       const observer = new IntersectionObserver((entries) => {
@@ -366,7 +380,11 @@ export default function Home() {
         observer.observe(container);
       });
 
-      return () => observer.disconnect();
+      return () => {
+        clearInterval(interval);
+        clearTimeout(timeout);
+        observer.disconnect();
+      };
     }
   }, [currentExPage, currentProjPage]);
 
