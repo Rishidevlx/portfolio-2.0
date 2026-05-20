@@ -162,7 +162,7 @@ div[aria-label="head-decorators-button-container"], div[aria-label="decorators-b
 
 }
 
-@media (min-width:400px) {
+@media (min-width: 768px) {
     .cute-avatar-container{
         flex-wrap: nowrap;
     }
@@ -192,15 +192,29 @@ div[aria-label="head-decorators-button-container"], div[aria-label="decorators-b
         top: -130px !important;
     }
 
-    /* 2. Align the Fun Zone title to the left and adjust padding to move it up slightly */
+    /* 2. Align the Fun Zone title to the left, move it up, and add a larger bottom margin to clear the speech bubble */
     .fun-zone-title {
         text-align: left !important;
         padding-left: 1.2rem !important;
-        padding-top: 2rem !important; /* Move it up from default 5rem */
-        margin-bottom: 1.5rem !important;
+        padding-top: 1rem !important; /* Move it up from default 5rem */
+        margin-bottom: 9.5rem !important; /* Substantial bottom margin only for mobile to clear absolute speech bubble */
     }
 
-    /* 3. Vertically stack the head decorators buttons to make them user-friendly and touch-friendly */
+    /* 3. Ensure both avatar section and controller have identical, centered, responsive width on mobile */
+    .cute-avatar-section,
+    .cute-avatar-controller-section {
+        width: 100% !important;
+        max-width: 22rem !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 4. Adjust the container padding on mobile for optimal screen space */
+    .cute-avatar-container {
+        padding: 1rem !important;
+    }
+
+    /* 5. Vertically stack the head decorators buttons to make them user-friendly and touch-friendly */
     div[aria-label="head-decorators-button-container"] {
         flex-direction: column !important;
         align-items: stretch !important;
