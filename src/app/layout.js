@@ -2,8 +2,8 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata = {
-  title: "Pritam Debnath - Portfolio 2.0",
-  description: "Pritam Debnath - Software Developer specializing in blending logic with creativity.",
+  title: "Rishi Profile - 2.O",
+  description: "Rishi - Software Developer specializing in blending logic with creativity.",
 };
 
 export default function RootLayout({ children }) {
