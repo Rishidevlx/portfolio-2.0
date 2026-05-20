@@ -57,7 +57,7 @@
     transform: translateY(0);
 }
 
-.project-card :hover {}
+/* .project-card :hover {} */
 
 .project-card-img-box {
     width: 100%;
@@ -72,11 +72,9 @@
 }
 
 
-
-.project-card-img:hover {
-    /* transform: scale(1.2); */
-
-}
+/* .project-card-img:hover {
+    transform: scale(1.2);
+} */
 
 .project-name {
     padding: 0 !important;
