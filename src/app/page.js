@@ -394,9 +394,18 @@ export default function Home() {
 
     const lens = container.querySelector('.fluid-glass-lens');
     const magText = container.querySelector('.magnified-text');
+    const cvBtn = container.querySelector('.about-cv-btn');
     if (!lens || !magText) return;
 
+    let isHoveringBtn = false;
+
     const handleMouseMove = (e) => {
+      if (isHoveringBtn) {
+        lens.style.opacity = '0';
+        lens.style.transform = 'scale(0.8)';
+        return;
+      }
+
       const rect = container.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -413,6 +422,7 @@ export default function Home() {
     };
 
     const handleMouseEnter = () => {
+      if (isHoveringBtn) return;
       lens.style.opacity = '1';
       lens.style.transform = 'scale(1)';
     };
@@ -422,11 +432,30 @@ export default function Home() {
       lens.style.transform = 'scale(0.8)';
     };
 
+    const handleBtnEnter = () => {
+      isHoveringBtn = true;
+      lens.style.opacity = '0';
+      lens.style.transform = 'scale(0.8)';
+    };
+
+    const handleBtnLeave = () => {
+      isHoveringBtn = false;
+    };
+
+    if (cvBtn) {
+      cvBtn.addEventListener('mouseenter', handleBtnEnter);
+      cvBtn.addEventListener('mouseleave', handleBtnLeave);
+    }
+
     container.addEventListener('mousemove', handleMouseMove);
     container.addEventListener('mouseenter', handleMouseEnter);
     container.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
+      if (cvBtn) {
+        cvBtn.removeEventListener('mouseenter', handleBtnEnter);
+        cvBtn.removeEventListener('mouseleave', handleBtnLeave);
+      }
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseenter', handleMouseEnter);
       container.removeEventListener('mouseleave', handleMouseLeave);
@@ -563,6 +592,18 @@ export default function Home() {
                   {/* Standard text (visible normally) */}
                   <div className="about-clean-text">
                     I am Rishi, a Full-Stack Developer specializing in architecting scalable web applications using the MERN stack (MongoDB, Express.js, React, Node.js). I engineer responsive frontends, RESTful APIs, and robust backend systems. I am also proficient in Python for backend development and automation workflows.
+                  </div>
+
+                  {/* Open my Cv Transparent Button */}
+                  <div style={{ display: "block", pointerEvents: "auto" }}>
+                    <a
+                      href="/assets/Rishi_Resume.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="about-cv-btn"
+                    >
+                      Open my CV
+                    </a>
                   </div>
                 </div>
 
