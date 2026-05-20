@@ -1135,7 +1135,7 @@ export default function Home() {
                   lineHeight: '1.4',
                   position: 'relative'
                 }}>
-                  Hi, I’m Riha 🥹… I don’t really know how to be fashionable… will you guide me and make me modern, pretty please?👉🏻👈🏻
+                  <span id="riha-bubble-text">Riha want pony hair style, please 🥺</span>
                   {/* Speech bubble triangle pointer */}
                   <div style={{
                     position: 'absolute',
@@ -1565,7 +1565,7 @@ export default function Home() {
               © {new Date().getFullYear()} RISHI.DEV. All rights reserved.
             </div>
             <div>
-              Designed & Developed with ❤️ by <span style={{ color: '#8b5cf6', fontWeight: '600' }}>Rishi Aravindha</span>
+              Designed & Developed with ❤️ by <a href="https://www.linkedin.com/in/rishiaravindha" target="_blank" rel="noopener noreferrer" style={{ color: '#8b5cf6', fontWeight: '600', textDecoration: 'none', transition: 'opacity 0.2s ease' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'} onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>Rishi Aravindha</a>
             </div>
           </div>
 

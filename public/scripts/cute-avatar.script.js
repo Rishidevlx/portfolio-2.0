@@ -47,6 +47,22 @@ const handleAllDecoratorsBox = (event, img, type) => {
     // change image
     img.src = "assets/images/cute-avatar/" + ariaLabel + ".png";
 
+    // Update speech bubble text dynamically based on the selected head decorator
+    const bubbleTextEl = document.getElementById('riha-bubble-text');
+    if (bubbleTextEl && type === "head-decorators") {
+      if (ariaLabel.includes("pony-hair")) {
+        bubbleTextEl.textContent = "Riha want Aki hair style , please 🥺 ";
+      } else if (ariaLabel.includes("aki-hair")) {
+        bubbleTextEl.textContent = "Riha want to listen songs, please 🥺 ";
+      } else if (ariaLabel.includes("headphone")) {
+        bubbleTextEl.textContent = "Riha need cap please, please 🥺";
+      } else if (ariaLabel.includes("cap")) {
+        bubbleTextEl.textContent = "Yay, thank you! I look so fashionable and pretty now! 🥰✨";
+      } else {
+        bubbleTextEl.textContent = "Riha want pony hair style, please 🥺";
+      }
+    }
+
     // choose animation type
     if (ariaLabel.includes("heart") || ariaLabel.includes("flower")) {
       img.classList.add("anim-bounce");
