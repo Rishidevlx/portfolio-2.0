@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import dynamic from 'next/dynamic';
-import ScrambledText from './components/ScrambledText';
+import VariableProximity from './components/VariableProximity';
 const Lanyard = dynamic(() => import('./components/Lanyard'), { ssr: false });
 const ThreeDCarousel = dynamic(() => import('./components/ThreeDCarousel'), { ssr: false });
 const Folder = dynamic(() => import('./components/Folder'), { ssr: false });
@@ -514,15 +514,16 @@ export default function Home() {
                 {/* Left side: Content block with premium lens magnifier effect */}
                 <div className="about-clean-content-box" ref={aboutRef}>
 
-                  <ScrambledText
-                    className="about-clean-text"
-                    radius={80}
-                    duration={1.5}
-                    speed={0.4}
-                    scrambleChars=".:*+/_"
-                  >
-                    {aboutData.description}
-                  </ScrambledText>
+                  <div className="about-clean-text">
+                    <VariableProximity
+                      label={aboutData.description}
+                      fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                      toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                      containerRef={aboutRef}
+                      radius={120}
+                      falloff="linear"
+                    />
+                  </div>
 
                   <div style={{ display: "block", pointerEvents: "auto" }}>
                     <a

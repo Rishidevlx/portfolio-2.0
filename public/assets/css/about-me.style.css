@@ -60,12 +60,11 @@
 }
 
 /* Left side: Content block */
-.about-clean-content-box,
-.about-clean-content-box * {
+.about-clean-content-box {
   flex: 1.2;
   position: relative;
-  cursor: none !important;
-  /* Hide OS arrow mouse cursor completely on hover! */
+  cursor: default;
+  /* Cursor visible so user can see it on hover */
 }
 
 .about-clean-heading {
@@ -79,12 +78,39 @@
 }
 
 .about-clean-text {
-  font-family: "Delius", serif;
-  /* Normal font matching other sections */
+  display: block;
   font-size: 1.25rem;
   line-height: 1.95;
   color: var(--body-text-color, snow);
   opacity: 0.9;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Make the VariableProximity span render as a wrapping inline block */
+.about-clean-text .variable-proximity {
+  display: block;
+  font-family: 'Roboto Flex', sans-serif;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Word-level spans: allow wrapping, reset any inherited flex */
+.about-clean-text .variable-proximity > span {
+  white-space: normal !important;
+  flex: unset !important;
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+/* Letter-level spans (motion.span): CRITICAL — disable CSS transition!
+   root.style.css has 'transition: all 0.2s' on *.
+   That means each JS fontVariationSettings change (every 16ms via rAF)
+   triggers a 200ms CSS transition that never completes → effect invisible.
+   transition: none makes the JS changes instant and visible. */
+.about-clean-text .variable-proximity > span > span {
+  transition: none !important;
+  font-family: 'Roboto Flex', sans-serif;
+  display: inline-block;
 }
 
 /* Light theme overrides for text colors */
