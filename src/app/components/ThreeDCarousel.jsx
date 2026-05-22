@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useRef, useEffect, useCallback } from 'react';
+import React, { useMemo, useRef, useEffect, useCallback, useState } from 'react';
 
 const DEFAULT_REVIEWS = [
   {
@@ -77,7 +77,7 @@ const Card = React.memo(({
       {/* Top Row: Stars and Platform */}
       <div className="flex justify-between items-center w-full">
         <div className="flex gap-1 text-amber-400">
-          {[...Array(5)].map((_, i) => (
+          {[...Array(review.rating || 5)].map((_, i) => (
             <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
@@ -140,6 +140,19 @@ const ThreeDCarousel = React.memo(({
   const initialRotationRef = useRef(0);
   const lastInteractionRef = useRef(Date.now());
   const animationFrameRef = useRef(null);
+
+  const [dynamicReviews, setDynamicReviews] = useState(reviews);
+
+  useEffect(() => {
+    fetch("/api/testimonials")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.data && data.data.length > 0) {
+          setDynamicReviews(data.data);
+        }
+      })
+      .catch((err) => console.error("Error fetching testimonials:", err));
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = e => {
@@ -219,14 +232,14 @@ const ThreeDCarousel = React.memo(({
   const onTouchStart = e => handleDragStart(e.touches[0].clientX);
   const onTouchMove = e => handleDragMove(e.touches[0].clientX);
 
-  const cards = useMemo(() => reviews.map((review, idx) => {
-    const angle = idx * 360 / reviews.length;
+  const cards = useMemo(() => dynamicReviews.map((review, idx) => {
+    const angle = idx * 360 / dynamicReviews.length;
     return {
       key: idx,
       review,
       transform: `rotateY(${angle}deg) translateZ(${radius}px)`
     };
-  }), [reviews, radius]);
+  }), [dynamicReviews, radius]);
 
   return (
     <div 
